@@ -1,0 +1,17 @@
+export async function onRequest(context) {
+  const { env } = context;
+
+  const base = env.SHEETS_API_BASE_URL;
+  const token = env.SHEETS_API_TOKEN;
+
+  const url = new URL(base);
+  url.searchParams.set("route", "products");
+  url.searchParams.set("token", token);
+
+  const res = await fetch(url.toString());
+  const data = await res.text();
+
+  return new Response(data, {
+    headers: { "Content-Type": "application/json" }
+  });
+}
