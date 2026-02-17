@@ -1,0 +1,16 @@
+{
+  "name": "reliance-site",
+  "type": "javascript",
+  "compatibility_date": "2026-02-17",
+  "main": "functions",
+  "env": {
+    "production": {
+      "routes": [
+        {
+          "pattern": "example.com/api/*",
+          "zone_name": "example.com"
+        }
+      ]
+    }
+  }
+}
